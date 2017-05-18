@@ -1,0 +1,8 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP PIC12F1571
+D 8-Pin MCU with High-Precision 16-Bit PWMs
+F datasheets/microchip-pic12f1571.pdf
+$ENDCMP
+#
+#End Doc Library
