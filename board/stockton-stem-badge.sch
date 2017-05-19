@@ -40,8 +40,8 @@ Date "2017-05-18"
 Rev "1"
 Comp "MIT License; (c) 2017 Chris Luke"
 Comment1 ""
-Comment2 ""
-Comment3 ""
+Comment2 "https://github.com/stockton-stem/stockton-stem-badge"
+Comment3 "Microcontroller-driven LED flasher"
 Comment4 ""
 $EndDescr
 $Comp
@@ -291,4 +291,62 @@ Wire Wire Line
 	5300 4000 5550 4000
 Wire Wire Line
 	5300 4100 5550 4100
+$Comp
+L VDD #PWR06
+U 1 1 591F5699
+P 5800 2300
+F 0 "#PWR06" H 5800 2150 50  0001 C CNN
+F 1 "VDD" H 5800 2450 50  0000 C CNN
+F 2 "" H 5800 2300 50  0001 C CNN
+F 3 "" H 5800 2300 50  0001 C CNN
+	1    5800 2300
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR07
+U 1 1 591F56C5
+P 5800 3050
+F 0 "#PWR07" H 5800 2800 50  0001 C CNN
+F 1 "GND" H 5800 2900 50  0000 C CNN
+F 2 "" H 5800 3050 50  0001 C CNN
+F 3 "" H 5800 3050 50  0001 C CNN
+	1    5800 3050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5800 2550 5950 2550
+Wire Wire Line
+	5800 2550 5800 2300
+Wire Wire Line
+	5800 3050 5800 2650
+Wire Wire Line
+	5800 2650 5950 2650
+Wire Wire Line
+	5400 2450 5950 2450
+$Comp
+L CONN_01X06 J1
+U 1 1 591F5833
+P 6150 2700
+F 0 "J1" H 6150 3050 50  0000 C CNN
+F 1 "ICSP" V 6250 2700 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x06_Pitch2.54mm" H 6150 2700 50  0001 C CNN
+F 3 "" H 6150 2700 50  0001 C CNN
+	1    6150 2700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5550 3700 5500 3700
+Wire Wire Line
+	5500 3700 5500 2850
+Wire Wire Line
+	5500 2850 5950 2850
+Wire Wire Line
+	5950 2750 5450 2750
+Wire Wire Line
+	5450 2750 5450 3600
+Connection ~ 5450 3600
+Wire Wire Line
+	5550 3900 5400 3900
+Wire Wire Line
+	5400 3900 5400 2450
 $EndSCHEMATC
