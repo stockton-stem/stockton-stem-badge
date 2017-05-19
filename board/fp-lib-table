@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name images)(type KiCad)(uri C:/Users/Chrisy/dev/Embedded/stockton-stem-badge/images)(options "")(descr "Project Images"))
+)
