@@ -1,4 +1,32 @@
-# Stockton STEM collaborative badge
+# Stockton STEM Collaborative badge
+
+## Introduction
+
+This project provides a simple electronic device that students of varying
+ability, with some supervision, should be able to assemble within half an
+hour. The targeted materials cost of each badge is less than US$10.
+
+The device is sophisticated enough that more advanced students should then
+be able to modify its functions using the source code in this repository, the
+free version of the development software and an inexpensive device programming
+tool.
+
+This code lives at https://github.com/stockton-stem/stockton-stem-badge .
+The Stockton STEM Collaborative page lives at
+https://stockton.edu/sciences-math/stem-collaborative.html .
+
+
+## Scope
+
+Components:
+
+* Printed circuit board.
+* 8-pin microcontroller chip.
+* Capacitor.
+* Resistors.
+* LEDs of different colors.
+* Coin-cell battery.
+
 
 # License
 
