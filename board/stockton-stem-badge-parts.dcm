@@ -6,9 +6,10 @@ K PIC, Microchip
 F datasheets/microchip-pic12f1501.pdf
 $ENDCMP
 #
-$CMP PIC12F1571
-D 8-Pin MCU with High-Precision 16-Bit PWMs
-F datasheets/microchip-pic12f1571.pdf
+$CMP PIC12LF1501
+D 8-Pin Flash, Low-voltage 8-Bit Microcontrollers
+K PIC, Microchip, low-voltage
+F datasheets/microchip-pic12f1501.pdf
 $ENDCMP
 #
 #End Doc Library
