@@ -53,7 +53,7 @@ They are far from final, but here's some pictures of the progress:
 
 Prototype 1 on strip-board:
 
-![First prototype](https://raw.githubusercontent.com/stockton-stem/stockton-stem-badge/master/images/prototype1.png)
+![First prototype](https://raw.githubusercontent.com/stockton-stem/stockton-stem-badge/master/images/prototype1.jpg)
 
 
 # License
