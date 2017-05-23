@@ -39,21 +39,21 @@ They are far from final, but here's some pictures of the progress:
 
 ### Schematic
 
-![Schematic](https://raw.githubusercontent.com/stockton-stem/stockton-stem-badge/master/images/board_schematic.png)
+![Schematic](https://raw.githubusercontent.com/stockton-stem/stockton-stem-badge/master/images/board-schematic.png)
 
 ### Layout
 
-![Board layout](https://raw.githubusercontent.com/stockton-stem/stockton-stem-badge/master/board_layout.png)
+![Board layout](https://raw.githubusercontent.com/stockton-stem/stockton-stem-badge/master/board-layout.png)
 
 ### 3D render of the board
 
-![3D render of board)[https://raw.githubusercontent.com/stockton-stem/stockton-stem-badge/master/board_render.png)
+![3D render of board](https://raw.githubusercontent.com/stockton-stem/stockton-stem-badge/master/board-render.png)
 
 ### Working prototypes
 
 Prototype 1 on strip-board:
 
-![First prototype)[https://raw.githubusercontent.com/stockton-stem/stockton-stem-badge/master/prototype1.png)
+![First prototype](https://raw.githubusercontent.com/stockton-stem/stockton-stem-badge/master/prototype1.png)
 
 
 # License
