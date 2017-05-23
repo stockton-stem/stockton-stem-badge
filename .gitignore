@@ -28,6 +28,9 @@
 *-bak
 *.bck
 _saved*.sch
+_autosave-*.kicad_pcb
+
 *.sw[op]
 
+# Various
 board/stockton-stem-badge.xml

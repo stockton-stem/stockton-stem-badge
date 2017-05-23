@@ -6,6 +6,11 @@ This project provides a simple electronic device that students of varying
 ability, with some supervision, should be able to assemble within half an
 hour. The targeted materials cost of each badge is less than US$10.
 
+The printed circuit board is made to resemble the Stockton STEM logo in
+the form of a badge.
+
+![Stockton STEM logo](https://raw.githubusercontent.com/stockton-stem/stockton-stem-badge/master/images/stem.png)
+
 The device is sophisticated enough that more advanced students should then
 be able to modify its functions using the source code in this repository, the
 free version of the development software and an inexpensive device programming
@@ -26,6 +31,29 @@ Components:
 * Resistors.
 * LEDs of different colors.
 * Coin-cell battery.
+
+## Progress
+
+First approximations of code and circuit are committed to this repository.
+They are far from final, but here's some pictures of the progress:
+
+### Schematic
+
+![Schematic](https://raw.githubusercontent.com/stockton-stem/stockton-stem-badge/master/images/board_schematic.png)
+
+### Layout
+
+![Board layout](https://raw.githubusercontent.com/stockton-stem/stockton-stem-badge/master/board_layout.png)
+
+### 3D render of the board
+
+![3D render of board)[https://raw.githubusercontent.com/stockton-stem/stockton-stem-badge/master/board_render.png)
+
+### Working prototypes
+
+Prototype 1 on strip-board:
+
+![First prototype)[https://raw.githubusercontent.com/stockton-stem/stockton-stem-badge/master/prototype1.png)
 
 
 # License

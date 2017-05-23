@@ -36,7 +36,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "Stockton STEM Collaborative badge"
-Date "2017-05-18"
+Date "2017-05-22"
 Rev "1"
 Comp "MIT License; (c) 2017 Chris Luke"
 Comment1 ""
