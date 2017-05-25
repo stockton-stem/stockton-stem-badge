@@ -1,4 +1,4 @@
 (fp_lib_table
-  (lib (name images)(type KiCad)(uri C:/Users/Chrisy/dev/Embedded/stockton-stem-badge/images)(options "")(descr "Project Images"))
-  (lib (name footprints)(type KiCad)(uri "$(KIPRJMOD)/footprints.pretty")(options "")(descr ""))
+  (lib (name images)(type KiCad)(uri "$(KIPRJMOD)/../images")(options "")(descr "Project Images"))
+  (lib (name footprints)(type KiCad)(uri "$(KIPRJMOD)/footprints.pretty")(options "")(descr "Project Footprints"))
 )

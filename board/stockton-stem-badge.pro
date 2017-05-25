@@ -1,4 +1,4 @@
-update=5/22/2017 16:38:02
+update=5/24/2017 23:29:31
 version=1
 last_client=kicad
 [pcbnew]
@@ -57,8 +57,6 @@ LibName27=atmel
 LibName28=contrib
 LibName29=valves
 LibName30=stockton-stem-badge-parts
-[general]
-version=1
 [schematic_editor]
 version=1
 PageLayoutDescrFile=
@@ -69,3 +67,5 @@ NetFmtName=Pcbnew
 SpiceForceRefPrefix=0
 SpiceUseNetNumbers=0
 LabSize=60
+[general]
+version=1
