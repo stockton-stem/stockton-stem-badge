@@ -325,7 +325,7 @@
       (net 1 GND))
     (pad 2 thru_hole circle (at 2.54 0) (size 1.8 1.8) (drill 0.9) (layers *.Cu *.Mask)
       (net 3 "Net-(D1-Pad2)"))
-    (model LEDs.3dshapes/LED_D5.0mm.wrl
+    (model D:/Users/Chrisy/dev/Embedded/stockton-stem-badge/board/packages3d/LED_D5.0mm_Blue.wrl
       (at (xyz 0 0 0))
       (scale (xyz 0.393701 0.393701 0.393701))
       (rotate (xyz 0 0 0))
@@ -358,7 +358,7 @@
       (net 1 GND))
     (pad 2 thru_hole circle (at 2.54 0) (size 1.8 1.8) (drill 0.9) (layers *.Cu *.Mask)
       (net 4 "Net-(D2-Pad2)"))
-    (model LEDs.3dshapes/LED_D5.0mm.wrl
+    (model D:/Users/Chrisy/dev/Embedded/stockton-stem-badge/board/packages3d/LED_D5.0mm_Green.wrl
       (at (xyz 0 0 0))
       (scale (xyz 0.393701 0.393701 0.393701))
       (rotate (xyz 0 0 0))
@@ -391,7 +391,7 @@
       (net 1 GND))
     (pad 2 thru_hole circle (at 2.54 0) (size 1.8 1.8) (drill 0.9) (layers *.Cu *.Mask)
       (net 5 "Net-(D3-Pad2)"))
-    (model LEDs.3dshapes/LED_D5.0mm.wrl
+    (model D:/Users/Chrisy/dev/Embedded/stockton-stem-badge/board/packages3d/LED_D5.0mm_Yellow.wrl
       (at (xyz 0 0 0))
       (scale (xyz 0.393701 0.393701 0.393701))
       (rotate (xyz 0 0 0))
@@ -424,7 +424,7 @@
       (net 1 GND))
     (pad 2 thru_hole circle (at 2.54 0) (size 1.8 1.8) (drill 0.9) (layers *.Cu *.Mask)
       (net 6 "Net-(D4-Pad2)"))
-    (model LEDs.3dshapes/LED_D5.0mm.wrl
+    (model D:/Users/Chrisy/dev/Embedded/stockton-stem-badge/board/packages3d/LED_D5.0mm_Orange.wrl
       (at (xyz 0 0 0))
       (scale (xyz 0.393701 0.393701 0.393701))
       (rotate (xyz 0 0 0))
@@ -682,15 +682,15 @@
   (segment (start 142.24 106.68) (end 142.24 104.497695) (width 0.1524) (layer B.Cu) (net 2))
   (segment (start 142.24 104.497695) (end 145.133336 101.604359) (width 0.1524) (layer B.Cu) (net 2) (tstamp 5926305B))
   (segment (start 142.24 106.68) (end 139.7 109.22) (width 0.1524) (layer F.Cu) (net 2))
-  (segment (start 171.45 90.805) (end 171.45 89.154) (width 0.1524) (layer F.Cu) (net 3) (status 400000))
-  (segment (start 160.48736 84.074) (end 158.1658 81.75244) (width 0.1524) (layer F.Cu) (net 3) (tstamp 5927A5ED) (status 800000))
+  (segment (start 171.45 90.805) (end 171.45 89.154) (width 0.1524) (layer F.Cu) (net 3))
+  (segment (start 160.48736 84.074) (end 158.1658 81.75244) (width 0.1524) (layer F.Cu) (net 3) (tstamp 5927A5ED))
   (segment (start 161.544 84.074) (end 160.48736 84.074) (width 0.1524) (layer F.Cu) (net 3) (tstamp 5927A5D7))
   (segment (start 165.1 87.63) (end 161.544 84.074) (width 0.1524) (layer F.Cu) (net 3) (tstamp 5927A5D3))
   (segment (start 169.926 87.63) (end 165.1 87.63) (width 0.1524) (layer F.Cu) (net 3) (tstamp 5927A5D1))
   (segment (start 171.45 89.154) (end 169.926 87.63) (width 0.1524) (layer F.Cu) (net 3) (tstamp 5927A5CF))
   (segment (start 158.05912 81.28) (end 158.00832 81.2292) (width 0.1524) (layer F.Cu) (net 3) (tstamp 5921B6BC))
-  (segment (start 146.38528 83.52028) (end 147.65528 83.52028) (width 0.1524) (layer F.Cu) (net 4) (status 400000))
-  (segment (start 165.1 88.9) (end 168.91 88.9) (width 0.1524) (layer F.Cu) (net 4) (tstamp 5927A37C) (status 800000))
+  (segment (start 146.38528 83.52028) (end 147.65528 83.52028) (width 0.1524) (layer F.Cu) (net 4))
+  (segment (start 165.1 88.9) (end 168.91 88.9) (width 0.1524) (layer F.Cu) (net 4) (tstamp 5927A37C))
   (segment (start 161.29 85.09) (end 165.1 88.9) (width 0.1524) (layer F.Cu) (net 4) (tstamp 5927A377))
   (segment (start 149.225 85.09) (end 161.29 85.09) (width 0.1524) (layer F.Cu) (net 4) (tstamp 5927A375))
   (segment (start 147.65528 83.52028) (end 149.225 85.09) (width 0.1524) (layer F.Cu) (net 4) (tstamp 5927A373))
@@ -707,8 +707,8 @@
   (segment (start 147.32 116.84) (end 154.94 116.84) (width 0.1524) (layer F.Cu) (net 7))
   (segment (start 171.45 100.33) (end 171.45 98.425) (width 0.1524) (layer F.Cu) (net 7) (tstamp 59262F36))
   (segment (start 154.94 116.84) (end 171.45 100.33) (width 0.1524) (layer F.Cu) (net 7) (tstamp 59262F34))
-  (segment (start 168.91 96.52) (end 168.91 92.71) (width 0.1524) (layer B.Cu) (net 8) (status 400000))
-  (segment (start 153.67 78.74) (end 150.495 75.565) (width 0.1524) (layer B.Cu) (net 8) (tstamp 5927A3A8) (status 800000))
+  (segment (start 168.91 96.52) (end 168.91 92.71) (width 0.1524) (layer B.Cu) (net 8))
+  (segment (start 153.67 78.74) (end 150.495 75.565) (width 0.1524) (layer B.Cu) (net 8) (tstamp 5927A3A8))
   (segment (start 158.75 78.74) (end 153.67 78.74) (width 0.1524) (layer B.Cu) (net 8) (tstamp 5927A3A6))
   (segment (start 161.29 81.28) (end 158.75 78.74) (width 0.1524) (layer B.Cu) (net 8) (tstamp 5927A3A4))
   (segment (start 161.29 85.09) (end 161.29 81.28) (width 0.1524) (layer B.Cu) (net 8) (tstamp 5927A3A1))
@@ -735,8 +735,8 @@
   (segment (start 137.16 115.57) (end 137.16 106.68) (width 0.1524) (layer B.Cu) (net 11) (tstamp 5926325A))
   (segment (start 138.43 116.84) (end 137.16 115.57) (width 0.1524) (layer B.Cu) (net 11) (tstamp 59263253))
   (segment (start 139.7 116.84) (end 139.065 116.84) (width 0.1524) (layer B.Cu) (net 11))
-  (segment (start 153.035 75.565) (end 155.194 77.724) (width 0.1524) (layer B.Cu) (net 13) (status 400000))
-  (segment (start 157.48 114.3) (end 147.32 114.3) (width 0.1524) (layer B.Cu) (net 13) (tstamp 5927A64D) (status 800000))
+  (segment (start 153.035 75.565) (end 155.194 77.724) (width 0.1524) (layer B.Cu) (net 13))
+  (segment (start 157.48 114.3) (end 147.32 114.3) (width 0.1524) (layer B.Cu) (net 13) (tstamp 5927A64D))
   (segment (start 170.18 101.6) (end 157.48 114.3) (width 0.1524) (layer B.Cu) (net 13) (tstamp 5927A644))
   (segment (start 170.18 92.71) (end 170.18 101.6) (width 0.1524) (layer B.Cu) (net 13) (tstamp 5927A63E))
   (segment (start 162.052 84.582) (end 170.18 92.71) (width 0.1524) (layer B.Cu) (net 13) (tstamp 5927A633))
