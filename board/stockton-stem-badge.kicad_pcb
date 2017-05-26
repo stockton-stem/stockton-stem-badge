@@ -406,7 +406,7 @@
     (pad 2 thru_hole circle (at 2.54 0) (size 1.8 1.8) (drill 0.9) (layers *.Cu *.Mask)
       (net 3 "Net-(D1-Pad2)"))
     (model D:/Users/Chrisy/dev/Embedded/stockton-stem-badge/board/packages3d/LED_D5.0mm_Blue.wrl
-      (at (xyz 0 0 0))
+      (at (xyz 0 0 -0.1))
       (scale (xyz 0.393701 0.393701 0.393701))
       (rotate (xyz 0 0 0))
     )
@@ -439,7 +439,7 @@
     (pad 2 thru_hole circle (at 2.54 0) (size 1.8 1.8) (drill 0.9) (layers *.Cu *.Mask)
       (net 4 "Net-(D2-Pad2)"))
     (model D:/Users/Chrisy/dev/Embedded/stockton-stem-badge/board/packages3d/LED_D5.0mm_Green.wrl
-      (at (xyz 0 0 0))
+      (at (xyz 0 0 -0.1))
       (scale (xyz 0.393701 0.393701 0.393701))
       (rotate (xyz 0 0 0))
     )
@@ -472,7 +472,7 @@
     (pad 2 thru_hole circle (at 2.54 0) (size 1.8 1.8) (drill 0.9) (layers *.Cu *.Mask)
       (net 5 "Net-(D3-Pad2)"))
     (model D:/Users/Chrisy/dev/Embedded/stockton-stem-badge/board/packages3d/LED_D5.0mm_Yellow.wrl
-      (at (xyz 0 0 0))
+      (at (xyz 0 0 -0.1))
       (scale (xyz 0.393701 0.393701 0.393701))
       (rotate (xyz 0 0 0))
     )
@@ -505,7 +505,7 @@
     (pad 2 thru_hole circle (at 2.54 0) (size 1.8 1.8) (drill 0.9) (layers *.Cu *.Mask)
       (net 6 "Net-(D4-Pad2)"))
     (model D:/Users/Chrisy/dev/Embedded/stockton-stem-badge/board/packages3d/LED_D5.0mm_Orange.wrl
-      (at (xyz 0 0 0))
+      (at (xyz 0 0 -0.1))
       (scale (xyz 0.393701 0.393701 0.393701))
       (rotate (xyz 0 0 0))
     )
