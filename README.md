@@ -55,6 +55,13 @@ Prototype 1 on strip-board:
 
 ![First prototype](https://raw.githubusercontent.com/stockton-stem/stockton-stem-badge/master/images/prototype1.jpg)
 
+### Board v0.1 render by OSH Park
+
+![OSH Park v0.1 front](https://raw.githubusercontent.com/stockton-stem/stockton-stem-badge/master/images/board-v0.1-osh-front)
+
+![OSH Park v0.1 back](https://raw.githubusercontent.com/stockton-stem/stockton-stem-badge/master/images/board-v0.1-osh-back)
+
+
 
 # License
 
