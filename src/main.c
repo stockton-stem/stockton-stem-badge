@@ -42,7 +42,7 @@ void init(void)
 
     // Set the timer up for PWM operation
     TMR2IF = 0;
-    T2CONbits.T2CKPS = SET_TMR2_PS; // Timer 2 16:1 prescale
+    T2CONbits.T2CKPS = SET_TMR2_PS; // Timer 2 4:1 prescale
     T2CONbits.TMR2ON = 1;   // Timer 2 on
     
     while(!TMR2IF) { /* Wait for Timer 2 */

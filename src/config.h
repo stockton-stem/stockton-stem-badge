@@ -13,8 +13,8 @@ extern "C" {
 #endif
 
 // With a processor clock of 1MHz and 2:1 prescaler, PR2 0x65 gives
-// us a 8.16ms PWM period (aka 1.2KHz)
-#define SET_TMR2_PS (1)         // 2:1 prescale
+// us a 16.26ms PWM period (aka ~600Hz)
+#define SET_TMR2_PS (1)         // 4:1 prescale
 #define SET_PR2 (0x65)          // Gives us 8-bit resolution on the duty cycle
 #define SET_IRCF (0b1011)       // 1MHz
 #define _XTAL_FREQ (1000000)    // 1MHz
