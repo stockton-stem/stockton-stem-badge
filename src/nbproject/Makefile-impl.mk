@@ -27,11 +27,11 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 PROJECTNAME=src
 
 # Active Configuration
-DEFAULTCONF=default
+DEFAULTCONF=ICD_3
 CONF=${DEFAULTCONF}
 
 # All Configurations
-ALLCONFS=default 
+ALLCONFS=ICD_3 PICkit_3 
 
 
 # build
@@ -45,13 +45,15 @@ ALLCONFS=default
 
 # clobber
 .clobber-impl: .clobber-pre .depcheck-impl
-	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=default clean
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=ICD_3 clean
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=PICkit_3 clean
 
 
 
 # all
 .all-impl: .all-pre .depcheck-impl
-	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=default build
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=ICD_3 build
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=PICkit_3 build
 
 
 
