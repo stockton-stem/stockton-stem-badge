@@ -57,9 +57,9 @@ Prototype 1 on strip-board:
 
 ### Board v0.1 render by OSH Park
 
-![OSH Park v0.1 front](https://raw.githubusercontent.com/stockton-stem/stockton-stem-badge/master/images/board-v0.1-osh-front)
+![OSH Park v0.1 front](https://raw.githubusercontent.com/stockton-stem/stockton-stem-badge/master/images/board-v0.1-osh-front.png)
 
-![OSH Park v0.1 back](https://raw.githubusercontent.com/stockton-stem/stockton-stem-badge/master/images/board-v0.1-osh-back)
+![OSH Park v0.1 back](https://raw.githubusercontent.com/stockton-stem/stockton-stem-badge/master/images/board-v0.1-osh-back.png)
 
 
 
