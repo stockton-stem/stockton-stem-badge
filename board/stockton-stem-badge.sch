@@ -37,7 +37,7 @@ encoding utf-8
 Sheet 1 1
 Title "Stockton STEM Collaborative badge"
 Date "2017-05-26"
-Rev "v0.1"
+Rev "v0.2"
 Comp "MIT License; (c) 2017 Chris Luke"
 Comment1 ""
 Comment2 "https://github.com/stockton-stem/stockton-stem-badge"
