@@ -5,8 +5,8 @@
  * https://github.com/stockton-stem/stockton-stem-badge
  */
 
-#ifndef PIC_CONFIG_H
-#define	PIC_CONFIG_H
+#ifndef _PIC_CONFIG_H
+#define	_PIC_CONFIG_H
 
 #ifdef	__cplusplus
 extern "C" {
@@ -35,5 +35,5 @@ extern "C" {
 }
 #endif
 
-#endif	/* PIC_CONFIG_H */
+#endif	/* _PIC_CONFIG_H */
 
