@@ -23,6 +23,10 @@
 /src/dist/
 /src/nbproject/private/
 
+# Generated project files
+/src/nbproject/Makefile-*
+/src/nbproject/*.bash
+
 # Various temporary/backup files
 *.bak
 *-bak
