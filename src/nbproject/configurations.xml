@@ -30,7 +30,7 @@
       <toolsSet>
         <developmentServer>localhost</developmentServer>
         <targetDevice>PIC12LF1501</targetDevice>
-        <targetHeader></targetHeader>
+        <targetHeader>AC244052</targetHeader>
         <targetPluginBoard></targetPluginBoard>
         <platformTool>ICD3PlatformTool</platformTool>
         <languageToolchain>XC8</languageToolchain>

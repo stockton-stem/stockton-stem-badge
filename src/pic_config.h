@@ -12,6 +12,9 @@
 extern "C" {
 #endif
 
+// Whether we want to use the watchdog timer
+//#define USE_WATCHDOG
+    
 // System configuration
 // Include only once per project
 #if defined(_12F1501) || defined(_12LF1501)
@@ -20,12 +23,19 @@ extern "C" {
 #pragma config CP = OFF         // Code EEPROM protection
 #pragma config MCLRE = ON       // !MCLR disable
 #pragma config PWRTE = ON       // Power up timer disable
-#pragma config WDTE = OFF       // Watchdog timer disable
 #pragma config FOSC = INTOSC    // Internal clock
 #pragma config LPBOR = OFF      // Low-power brownout
 #pragma config BORV = 1         // Brown out reset voltage (low trip point)
 #pragma config STVREN = ON      // Stack over/underflow causes reset
 #pragma config WRT = 0b11       // Write protection off
+
+#ifdef USE_WATCHDOG
+#pragma config WDTE = ON        // Watchdog timer enable
+#else /* USE_WATCHDOG */
+#pragma config WDTE = OFF       // Watchdog timer disable
+#endif /* USE_WATCHDOG */
+   
+
 #else
 #error This code is designed for a PIC12F1501 or PIC12LF1501!
 #endif
