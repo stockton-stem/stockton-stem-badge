@@ -18,8 +18,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "Stockton STEM Collaborative badge"
-Date "2017-05-31"
-Rev "v0.2"
+Date "2017-06-02"
+Rev "v0.3"
 Comp "MIT License; (c) 2017 Chris Luke"
 Comment1 ""
 Comment2 "https://github.com/stockton-stem/stockton-stem-badge"
