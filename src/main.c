@@ -8,10 +8,14 @@
 #include "pic_config.h"
 #include "config.h"
 #include <xc.h>
+#include <stdint.h>
 #include "badge.h"
 
 // Incremented by a timer. Interval TBD.
-volatile unsigned int tick = 0;
+volatile uint8_t tick = 0;
+
+// Flag to indicate our time is up
+volatile uint8_t want_to_sleep = 0;
 
 
 /* Initialize the hardware.
@@ -26,8 +30,7 @@ volatile unsigned int tick = 0;
  * 
  * RA1 and 3 are also attached to the ICSP header.
  */
-static void init(void)
-{
+static void init(void) {
     OSCCONbits.IRCF = SET_IRCF; // Set the clock speed
     OSCCONbits.SCS = 0b11;      // Internal clock
 
@@ -47,9 +50,6 @@ static void init(void)
     // Setup PWM
     PWM1CON = PWM2CON = PWM3CON = PWM4CON = 0;
 
-    // Set the PWM period
-    PR2 = SET_PR2;
-    
     // Reset PWM values
     PWM1DCH = PWM1DCL = 0;
     PWM2DCH = PWM2DCL = 0;
@@ -57,7 +57,8 @@ static void init(void)
     PWM4DCH = PWM4DCL = 0;
 
     // Set the timer up for PWM operation
-    TMR2IF = 0;
+    TMR2IF = 0; // Reset counter
+    PR2 = SET_PR2; // Set the PWM period
     T2CONbits.T2CKPS = SET_TMR2_PS; // Timer 2 4:1 prescale
     TMR2ON = 1;   // Timer 2 on
     
@@ -68,9 +69,30 @@ static void init(void)
     TRISA = 0x0a;       // RA0,2,4,5 are outputs, RA1,3 are inputs
     PWM1EN = PWM2EN = PWM3EN = PWM4EN = 1;
     PWM1OE = PWM2OE = PWM3OE = PWM4OE = 1;
-    
+
+    // Setup Timer1 for our tick
+    // This should give us an interrupt every 4 seconds
+    T1CONbits.TMR1CS = 0b11;
+    T1CONbits.T1CKPS = 0b11;
+    T1CONbits.nT1SYNC = 0b1;
+    TMR1GE = TMR1IF = 0;
+    TMR1ON = TMR1IE = 1;
+
     // Let the interrupts loose
     ei();
+}
+
+
+// Shuts everything down and goes to sleep
+void go_to_sleep(void) {
+    // Disable the PWM output values
+    PWM1OE = PWM2OE = PWM3OE = PWM4OE = 0;
+
+    // Turn off any output pins
+    LATA = 0x00;
+
+    // Go to sleep
+    SLEEP();
 }
 
 
@@ -87,15 +109,16 @@ void main(void) {
         // Let the puppy know we're alive
         CLRWDT();
 #endif /* USE_WATCHDOG */
+
+        // Have we been running quite long enough?
+        if (want_to_sleep)
+            go_to_sleep();
     }
-    
-    return;
 }
 
 
 // Interrupt handler
-static void interrupt int_handler(void)
-{
+static void interrupt int_handler(void) {
     // Button pressed?
     if (IOCIE && IOCIF) {
         // TODO: Debounce? Call an fn in badge.c?
@@ -105,13 +128,18 @@ static void interrupt int_handler(void)
     }
     
     // Timer expired?
-    if (T0IE && T0IF) {
+    if (TMR1IE && TMR1IF) {
         // Tock the tick
         ++tick;
+
+        // Did our tick expire?
+        if (tick >= 75) // on a 4-sec tick, this should be 5 minutes.
+            want_to_sleep = 1;
         
         // Reset the overflow flag
-        T0IF = 0;
+        TMR1IF = 0;
+
         // Reset the timer
-        TMR0 = 0;
+        TMR1H = TMR1L = 0;
     }
 }
