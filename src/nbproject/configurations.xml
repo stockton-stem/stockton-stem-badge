@@ -313,7 +313,7 @@
         <property key="fill-flash-options-what" value="0"/>
         <property key="format-hex-file-for-download" value="false"/>
         <property key="initialize-data" value="true"/>
-        <property key="keep-generated-startup.as" value="false"/>
+        <property key="keep-generated-startup.as" value="true"/>
         <property key="link-in-c-library" value="true"/>
         <property key="link-in-peripheral-library" value="false"/>
         <property key="managed-stack" value="false"/>

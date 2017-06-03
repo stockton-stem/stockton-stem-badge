@@ -36,16 +36,11 @@ static void init(void) {
 
     // Setup the I/O
     OPTION_REG = 0x00;  // No timers, no interrupts, enable weak pullups
+    APFCON = 0x00;      // No alternative mappings
     ANSELA = 0x00;      // All lines are digital
     LATA = 0x00;        // Make sure all outputs are low
     WPUA = 0x0a;        // RA1,3 have weak pullups
     TRISA = 0x1f;       // everything is an input for now
-
-    // Setup interrupt-on-change for RA1
-    IOCAF = IOCAP = 0x02; // IOC on rising edge of RA1
-    IOCAN = 0x00;       // No IOC on any falling edge
-    IOCIE = 1;
-    IOCIF = 0;
 
     // Setup PWM
     PWM1CON = PWM2CON = PWM3CON = PWM4CON = 0;
@@ -70,16 +65,25 @@ static void init(void) {
     PWM1EN = PWM2EN = PWM3EN = PWM4EN = 1;
     PWM1OE = PWM2OE = PWM3OE = PWM4OE = 1;
 
+    // Setup interrupt-on-change for RA1
+    IOCAP = 0x02;       // IOC on rising edge of RA1
+    IOCAN = 0x00;       // No IOC on any falling edge
+    IOCAF = 0;
+    IOCIF = 0;
+    IOCIE = 1;
+
     // Setup Timer1 for our tick
-    // This should give us an interrupt every 4 seconds
-    T1CONbits.TMR1CS = 0b11;
-    T1CONbits.T1CKPS = 0b11;
-    T1CONbits.nT1SYNC = 0b1;
-    TMR1GE = TMR1IF = 0;
-    TMR1ON = TMR1IE = 1;
+    T1CONbits.TMR1CS = SET_TMR1_CS;
+    T1CONbits.T1CKPS = SET_TMR1_PS;
+    T1CONbits.nT1SYNC = SET_TMR1_SYNC;
+    RESET_TMR1();
+    TMR1GE = 0; // no gate
+    TMR1IE = 1; // enable interrupt
+    TMR1ON = 1; // enable timer
 
     // Let the interrupts loose
-    ei();
+    PEIE = 1;
+    GIE = 1;
 }
 
 
@@ -91,8 +95,20 @@ void go_to_sleep(void) {
     // Turn off any output pins
     LATA = 0x00;
 
+    // Cancel pending IOC flags (but don't disable the interrupt)
+    IOCAF = 0;
+    IOCIF = 0;
+
+    // Cancel any pending timer interrupt
+    RESET_TMR1();
+    TMR1IE = 0;
+
     // Go to sleep
     SLEEP();
+
+    // We woke up! Re-initialize the hardware
+    init();
+    want_to_sleep = 0;
 }
 
 
@@ -119,27 +135,31 @@ void main(void) {
 
 // Interrupt handler
 static void interrupt int_handler(void) {
-    // Button pressed?
-    if (IOCIE && IOCIF) {
-        // TODO: Debounce? Call an fn in badge.c?
-        
-        // Reset the interrupt flag
-        IOCIF = 0;
-    }
-    
     // Timer expired?
     if (TMR1IE && TMR1IF) {
+        // Reset the timer
+        RESET_TMR1();
+
         // Tock the tick
         ++tick;
 
         // Did our tick expire?
-        if (tick >= 75) // on a 4-sec tick, this should be 5 minutes.
+        if (tick >= (RUN_INTERVAL/TMR1_INTERVAL))
             want_to_sleep = 1;
-        
-        // Reset the overflow flag
-        TMR1IF = 0;
+    }
 
-        // Reset the timer
-        TMR1H = TMR1L = 0;
+    // Button pressed?
+    if (IOCIE && IOCIF) {
+        if (IOCAF1) {
+            // TODO: Reset timer0, call fn in badge.c in tmr0 isr
+            // Reset the runtime counter
+            tick = 0;
+
+            // Reset our trigger
+            IOCAF1 = 0;
+        }
+
+        // Reset the interrupt flag
+        IOCIF = 0;
     }
 }
