@@ -24,8 +24,9 @@
 /src/nbproject/private/
 
 # Generated project files
-/src/nbproject/Makefile-*
+/src/nbproject/*.mk
 /src/nbproject/*.bash
+/src/nbproject/*.properties
 
 # Various temporary/backup files
 *.bak
