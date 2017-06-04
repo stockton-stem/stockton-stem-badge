@@ -81,6 +81,12 @@ static void init(void) {
     TMR1IE = 1; // enable interrupt
     TMR1ON = 1; // enable timer
 
+    // Setup Timer0 for de-bouncing, but don't start it
+    TMR0CS = SET_TMR0_CS;
+    TMR0SE = 0;
+    OPTION_REGbits.PSA = 0;
+    OPTION_REGbits.PS = SET_TMR0_PS;
+
     // Let the interrupts loose
     PEIE = 1;
     GIE = 1;
@@ -99,9 +105,9 @@ void go_to_sleep(void) {
     IOCAF = 0;
     IOCIF = 0;
 
-    // Cancel any pending timer interrupt
-    RESET_TMR1();
-    TMR1IE = 0;
+    // Cancel any pending timer interrupts
+    DISABLE_TMR0();
+    DISABLE_TMR1();
 
     // Go to sleep
     SLEEP();
@@ -135,7 +141,7 @@ void main(void) {
 
 // Interrupt handler
 static void interrupt int_handler(void) {
-    // Timer expired?
+    // Timer1 expired? This is our tick
     if (TMR1IE && TMR1IF) {
         // Reset the timer
         RESET_TMR1();
@@ -148,10 +154,21 @@ static void interrupt int_handler(void) {
             want_to_sleep = 1;
     }
 
+    // Timer0 expired? This is a button de-bounce delay
+    if (TMR0IE && TMR0IF) {
+        // Disable the timer
+        DISABLE_TMR0();
+
+        // Do something with it
+        badge_button();
+    }
+
     // Button pressed?
     if (IOCIE && IOCIF) {
         if (IOCAF1) {
-            // TODO: Reset timer0, call fn in badge.c in tmr0 isr
+            // Reset timer0. This is to de-bounce the press
+            RESET_TMR0();
+
             // Reset the runtime counter
             tick = 0;
 

@@ -32,6 +32,7 @@ extern "C" {
 
 
 void badge_iterate(void);
+void badge_button(void);
 
 
 #ifdef	__cplusplus
