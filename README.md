@@ -29,10 +29,12 @@ Components:
 
 * Printed circuit board.
 * 8-pin microcontroller chip.
-* Capacitor.
+* Capacitors.
 * Resistors.
 * LEDs of different colors.
 * Coin-cell battery.
+* Push-button.
+
 
 ## Progress
 
@@ -85,10 +87,16 @@ Various configuration details are kept in `config.h` (Peripheral setup values,
 for example to setup the timers and PWMs) and `pic_config.h` (PIC startup
 values).
 
-The internal CPU clock is configured to run at 1MHz. At a later stage the
-clock may be configured at a lower rate to reduce battery consumption, though
-all downstream modules driven by this clock then need to be considered and
-their values amended.
+
+## System clock
+
+The internal CPU clock (Fosc) is configured to run at 1MHz. At a later stage
+the clock may be configured at a lower rate to reduce battery consumption,
+though all downstream modules driven by this clock then need to be considered
+and their values amended.
+
+
+## PWM modules
 
 The four PWM peripherals drive the pins that the LEDs are wired to. Pulse-
 width modulation enables the project to control the brightness of the LEDs.
@@ -100,6 +108,9 @@ though a divider. These are configured to provide a 16.26ms PWM period (about
 LEDs may use less, or more, power with a slower PWM period and this should
 be investigated.
 
+
+## Idle shutdown
+
 Timer 1 is setup to generate an interrupt every two seconds and is driven from
 a seperate internal oscillator that runs at 32KHz. The interrupts are counted
 and after RUN_INTERVAL seconds (see `config.h`) the project is powered off.
@@ -108,12 +119,19 @@ interrupts that might wake the device prematurely and then putting the system
 to sleep. In this state the processor uses the least amount of power possible;
 a fresh CR2032 battery might last more than two years at this power level.
 
-One interrupt is configured such that the push button on the board can wake
-the processor from its slumber whereupon the hardware is reconfigured and
-normal operation resumes.
 
-The push button also generates an interrupt during normal operation; this does
-two things:
+## The button
+
+Any interrupt can wake the device from sleep if it is left configured when
+going to sleep and any associated peripheral remains running when sleeping.
+
+The input pin that the button is attached to is configured to "interrupt on
+change"; this mode will survive sleeping. Should the input line change when
+asleep the system resumes from where it left of; the code re-initializes the
+hardware and then the progrm continues as normal.
+
+The interrupt also triggers during normal operation when the button is
+pressed; this does two things:
 
 * It resets the runtime counter, thus extending the time the project will
   run for.
@@ -126,6 +144,9 @@ the button to have finised; each subsequent noisy input resets the Timer 1
 counter. Once the Timer 1 counter completes, its interrupt then causes the LED
 pattern to cycle by incrementing the pattern number.
 
+
+## LED patterns
+
 LED patterns are produced by a function that is expected to set the state of
 the LEDs once and then return; advancing to the next LED state the next time
 it is called. In this way cycling through different LED patterns is just a
@@ -135,12 +156,99 @@ Presently this dispatch is performed in a `switch` statement; value `0` calls
 `iterate_basic_ramp`, value `1` calls another function, etc. In future a
 function table may work better.
 
+
+## Future thoughts
+
 In future, power reduction may be realized by replacing the current per-
 iteration spin-style sleep (that is, the processor executes dummy instructions
 in a loop until the correct amount of time has passed) with a system sleep
 that is woken up by Timer 0 after N-milliseconds, though in the scheme of
 things the amount of power consumed by the processor is tiny  compared to the
 LEDs.
+
+
+# Firmware build tools
+
+Several tools, a mixture of hardware and software, are needed to develop,
+build and install new code onto the PIC processor.
+
+
+## MPLAB-X
+
+* TODO add URL
+
+This is an integrated development environment (IDE) from MicroChip. It is
+available for Linux, MacOS X and for Windows.
+
+
+## XC 8 compiler
+
+* TODO add URL
+
+This is a proprietary compiler from MicroChip designed for their 8-bit PIC
+series. It integates effortlessly with the MPLAB-X IDE. It is available for
+Linux, MacOS X and for Windows.
+
+The paid-for license enables enhanced compiler optimizations that can reduce
+the produced firmware image size and the code may run more efficiently; whilst
+nice these are not needed for this project and thus the free license is
+perfectly adequate.
+
+
+## Device programming/debugging
+
+To program new code onto the PIC a programmer is necessary. MicroChip have
+their own mechanism for this known as ISCP; either one of the two programmers
+below will suffice for this. Note that older PICkit 2 programmers, or those
+that are PICkit 2 compatible, will not work on the PIC in this project.
+
+This particular PIC chip also does not have a built-in debugger; for that an
+external module is required in addition to one of the programmers below; this
+is strictly optional.
+
+When a programmer is connected the push-button may not always work as
+expected; given the low pin count of the processor two of the signals needed
+for ICSP are shared with other functions; for this project that means one LED
+and the button. When programming you may notice the green LED flashing. Some
+programmers hold the line used for the button low after programming thus
+interferes with its operation.
+
+Whatever programmer is used, ensure that it is configured with a target
+voltage of 3.0v. The current limiting resistors of the LEDs are chosen
+with the 3v supplied by a button cell in mind; any more than this can
+damage the LEDs.
+
+### PICkit 3
+
+* TODO add URL
+
+This USB device is a basic ICSP PIC programmer that typically retails for
+$50US though cheaper versions, of varying authenticity, are available on Ebay
+and elsewhere for $10-$20.
+
+The pull-up resistor R5 is required for this programmer to function correctly.
+
+### ICD 3
+
+* TODO add URL
+
+This is an enhanced ICSP PIC programmer and debugger. It is faster and can
+provide more power to target boards; it is also much more expensive at about
+US$200.
+
+Empirical observations suggest that the pull-up resistor R5 may be optional
+for this programmer to function correctly.
+
+### (debugging module)
+
+* TODO add model and URL
+
+This is not strictly necessary but it can often aid debugging new code if a
+hardware debugger is available. This device sells for US$50. You insert it
+into the target board _instead_ of the normal PIC and the programmer then
+plugs into this debugging module. It only provides a single hardware
+breakpoint but given the simplicity of this project that should prove
+sufficient for most debugging.
 
 
 # License
