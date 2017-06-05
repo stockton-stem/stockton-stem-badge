@@ -173,21 +173,22 @@ Several tools, a mixture of hardware and software, are needed to develop,
 build and install new code onto the PIC processor.
 
 
-## MPLAB-X
+## MPLAB X IDE
 
-* TODO add URL
+http://www.microchip.com/mplab/mplab-x-ide
 
-This is an integrated development environment (IDE) from MicroChip. It is
-available for Linux, MacOS X and for Windows.
+This is an integrated development environment (IDE) from Microchip. It is
+available for Linux, MacOS X and for Windows from the _Downloads_ tab.
 
 
-## XC 8 compiler
+## XC8 compiler
 
-* TODO add URL
+http://www.microchip.com/mplab/compilers
 
 This is a proprietary compiler from MicroChip designed for their 8-bit PIC
 series. It integates effortlessly with the MPLAB-X IDE. It is available for
-Linux, MacOS X and for Windows.
+Linux, MacOS X and for Windows. There are several XC compilers available on
+the _Downloads_ tab, for this project _MPLAB XC8_ is required.
 
 The paid-for license enables enhanced compiler optimizations that can reduce
 the produced firmware image size and the code may run more efficiently; whilst
@@ -220,7 +221,7 @@ damage the LEDs.
 
 ### PICkit 3
 
-* TODO add URL
+http://www.microchip.com/pickit3
 
 This USB device is a basic ICSP PIC programmer that typically retails for
 $50US though cheaper versions, of varying authenticity, are available on Ebay
@@ -230,7 +231,7 @@ The pull-up resistor R5 is required for this programmer to function correctly.
 
 ### ICD 3
 
-* TODO add URL
+http://www.microchip.com/icd3
 
 This is an enhanced ICSP PIC programmer and debugger. It is faster and can
 provide more power to target boards; it is also much more expensive at about
@@ -239,9 +240,9 @@ US$200.
 Empirical observations suggest that the pull-up resistor R5 may be optional
 for this programmer to function correctly.
 
-### (debugging module)
+### PIC16LF1509-ICE Processor Extension Pak
 
-* TODO add model and URL
+http://microchip.com/ac244052
 
 This is not strictly necessary but it can often aid debugging new code if a
 hardware debugger is available. This device sells for US$50. You insert it
