@@ -12,7 +12,7 @@
 
 
 #define mv 255
-#define lv(v) (v < (mv/2) ? v : mv - (v))
+#define lv(v) (v < (mv/2) ? v : mv - (v) - 1)
 
 
 enum badge_patterns {
@@ -29,10 +29,10 @@ void iterate_basic_ramp(void) {
     // Animate the badge here!
     static uint8_t i = 0, j = 16, k = 32, l = 64;
 
-    set_pwm8(PWM1, lv(i));
-    set_pwm8(PWM2, lv(j));
-    set_pwm8(PWM3, lv(k));
-    set_pwm8(PWM4, lv(l));
+    set_pwm8(PWM1, lv(i)<<1);
+    set_pwm8(PWM2, lv(j)<<1);
+    set_pwm8(PWM3, lv(k)<<1);
+    set_pwm8(PWM4, lv(l)<<1);
 
     ++i; ++j; ++k; ++l;
     
