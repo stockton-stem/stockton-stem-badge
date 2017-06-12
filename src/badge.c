@@ -11,7 +11,7 @@
 #include "badge.h"
 
 
-#define mv 128
+#define mv 255
 #define lv(v) (v < (mv/2) ? v : mv - (v))
 
 
@@ -29,7 +29,7 @@ void iterate_basic_ramp(void) {
     // Animate the badge here!
     static uint8_t i = 0, j = 16, k = 32, l = 64;
 
-    set_pwm8(PWM1, lv(i)>>2);
+    set_pwm8(PWM1, lv(i));
     set_pwm8(PWM2, lv(j));
     set_pwm8(PWM3, lv(k));
     set_pwm8(PWM4, lv(l));
@@ -51,7 +51,7 @@ void iterate_basic_flash(void) {
     static uint16_t i = 0;
     
     if (i < 500) {
-        set_pwm8(PWM1, mv>>2);
+        set_pwm8(PWM1, mv);
         set_pwm8(PWM2, mv);
         set_pwm8(PWM3, mv);
         set_pwm8(PWM4, mv);
