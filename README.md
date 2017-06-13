@@ -19,8 +19,7 @@ tool.
 The board design schematics and firmware source code lives at
 https://github.com/stockton-stem/stockton-stem-badge .
 
-The Stockton STEM Collaborative page lives at
-https://stockton.edu/sciences-math/stem-collaborative.html .
+The Stockton STEM Collaborative page lives at https://stockton.edu/stem .
 
 
 ## Scope
