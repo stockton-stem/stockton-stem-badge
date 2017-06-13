@@ -112,7 +112,7 @@ be investigated.
 ## Idle shutdown
 
 Timer 1 is setup to generate an interrupt every two seconds and is driven from
-a seperate internal oscillator that runs at 32KHz. The interrupts are counted
+a separate internal oscillator that runs at 32KHz. The interrupts are counted
 and after RUN_INTERVAL seconds (see `config.h`) the project is powered off.
 This involves disabling the PWM modules, turning off the LEDs, disabling any
 interrupts that might wake the device prematurely and then putting the system
@@ -128,7 +128,7 @@ going to sleep and any associated peripheral remains running when sleeping.
 The input pin that the button is attached to is configured to "interrupt on
 change"; this mode will survive sleeping. Should the input line change when
 asleep the system resumes from where it left of; the code re-initializes the
-hardware and then the progrm continues as normal.
+hardware and then the program continues as normal.
 
 The interrupt also triggers during normal operation when the button is
 pressed; this does two things:
@@ -138,9 +138,9 @@ pressed; this does two things:
 * It is also used to cycle through the various LED patterns available.
 
 To de-bounce the input from the button, Timer 0 is setup to run once when the
-button interrupt fires. Timer 0 is setup to generate an interrupt in about 4ms
+button interrupt fires. Timer 0 is setup to generate an interrupt in about 16ms
 after being started, typically enough time for any noisy input signals from
-the button to have finised; each subsequent noisy input resets the Timer 1
+the button to have finished; each subsequent noisy input resets the Timer 1
 counter. Once the Timer 1 counter completes, its interrupt then causes the LED
 pattern to cycle by incrementing the pattern number.
 
@@ -186,7 +186,7 @@ available for Linux, MacOS X and for Windows from the _Downloads_ tab.
 http://www.microchip.com/mplab/compilers
 
 This is a proprietary compiler from MicroChip designed for their 8-bit PIC
-series. It integates effortlessly with the MPLAB-X IDE. It is available for
+series. It integrates effortlessly with the MPLAB-X IDE. It is available for
 Linux, MacOS X and for Windows. There are several XC compilers available on
 the _Downloads_ tab, for this project _MPLAB XC8_ is required.
 

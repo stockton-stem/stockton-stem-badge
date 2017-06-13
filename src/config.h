@@ -42,13 +42,12 @@ extern "C" {
         TMR1IF = 0; \
     } while (0)
 
-//#define RUN_INTERVAL (300)      // 5 minutes run time before sleep
-#define RUN_INTERVAL (30)      // debugging: 30 seconds run time before sleep
+#define RUN_INTERVAL (30)      // 30 seconds run time before sleep
 
 
 // Values for Timer0
 #define SET_TMR0_CS (0b0)       // Internal clock (Fosc/4)
-#define SET_TMR0_PS (0b101)     // 1:64 prescaler
+#define SET_TMR0_PS (0b111)     // 1:256 prescaler (~16ms)
 
 #define RESET_TMR0() do { \
         TMR0 = 0; \
