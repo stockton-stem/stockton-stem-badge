@@ -35,9 +35,11 @@
 _saved*.sch
 _autosave-*.kicad_pcb
 
+# Vi
 *.sw[op]
 
-# Various
+# Various intermediate files
 board/stockton-stem-badge.xml
 board/stockton-stem-badge.csv
+board/stockton-stem-badge.dsn
 board/gerber/gerber.zip
