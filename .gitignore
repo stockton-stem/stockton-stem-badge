@@ -42,4 +42,6 @@ _autosave-*.kicad_pcb
 board/stockton-stem-badge.xml
 board/stockton-stem-badge.csv
 board/stockton-stem-badge.dsn
+board/~$stockton-stem-badge.xlsx
+board/stockton-stem-badge.xlsx
 board/gerber/gerber.zip
