@@ -64,6 +64,12 @@ Prototype 1 on strip-board:
 
 ![OSH Park v0.1 back](https://raw.githubusercontent.com/stockton-stem/stockton-stem-badge/master/images/board-v0.1-osh-back.png)
 
+### Board v0.3 render by OSH Park
+
+![OSH Park v0.3 front](https://raw.githubusercontent.com/stockton-stem/stockton-stem-badge/master/images/board-v0.3-osh-front.png)
+
+![OSH Park v0.3 back](https://raw.githubusercontent.com/stockton-stem/stockton-stem-badge/master/images/board-v0.3-osh-back.png)
+
 
 # System Description
 

@@ -1,13 +1,13 @@
 (export (version D)
   (design
     (source D:/Users/Chrisy/dev/Embedded/stockton-stem-badge/board/stockton-stem-badge.sch)
-    (date "7/1/2017 18:35:39")
+    (date "7/1/2017 23:21:05")
     (tool "Eeschema 4.0.6")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
         (title "Stockton STEM Collaborative badge")
         (company "MIT License; (c) 2017 Chris Luke")
-        (rev v0.3)
+        (rev v0.4)
         (date 2017-07-01)
         (source stockton-stem-badge.sch)
         (comment (number 1) (value ""))
