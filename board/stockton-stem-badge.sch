@@ -18,7 +18,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "Stockton STEM Collaborative badge"
-Date "2017-06-17"
+Date "2017-07-01"
 Rev "v0.3"
 Comp "MIT License; (c) 2017 Chris Luke"
 Comment1 ""
@@ -175,7 +175,7 @@ F 1 "47Ω" V 3800 3750 50  0000 C CNN
 F 2 "Resistors_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 3730 3750 50  0001 C CNN
 F 3 "http://www.mouser.com/ds/2/219/MF-MFS-RK-18760.pdf" H 3800 3750 50  0001 C CNN
 F 4 "KOA Speer" H 3800 3750 60  0001 C CNN "mfr"
-F 5 "MF1/4DCT52R47R0F" H 3800 3750 60  0001 C CNN "part#"
+F 5 "MF1/4DCT52R47R0F" H 3500 3750 60  0001 C CNN "part#"
 F 6 "Mouser" H 3800 3750 60  0001 C CNN "Src1"
 F 7 "660-MF1/4DCT52R47R0F" H 3800 3750 60  0001 C CNN "Src1 Part"
 F 8 "http://www.mouser.com/ProductDetail/KOA-Speer/MF1-4DCT52R47R0F" H 3800 3750 60  0001 C CNN "Src1 URL"
@@ -237,7 +237,7 @@ P 3800 4150
 F 0 "D4" H 3800 4250 50  0000 C CNN
 F 1 "ORANGE" H 3800 4050 50  0000 C CNN
 F 2 "LEDs:LED_D5.0mm" H 3800 4150 50  0001 C CNN
-F 3 "http://www.mouser.com/ds/2/244/SSL-LX5093OD-121622.pdf" H 3800 4150 50  0001 C CNN
+F 3 "http://www.lumex.com/ssl-lx5093od" H 3800 4150 50  0001 C CNN
 F 4 "Lumex" H 3800 4150 60  0001 C CNN "mfr"
 F 5 "SSL-LX5093OD" H 3800 4150 60  0001 C CNN "part#"
 F 6 "Mouser" H 3800 4150 60  0001 C CNN "Src1"
@@ -504,4 +504,14 @@ Text GLabel 1850 3350 1    60   Output ~ 0
 BUT1
 Wire Wire Line
 	1850 3550 1850 3350
+Wire Wire Line
+	2900 3550 2650 3550
+Wire Wire Line
+	2650 3550 2650 3950
+Wire Wire Line
+	2650 3950 2900 3950
+Connection ~ 2900 3950
+Connection ~ 2900 3550
+Text Notes 2650 4100 1    60   ~ 0
+Cut if using R1
 $EndSCHEMATC
