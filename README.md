@@ -73,17 +73,19 @@ Prototype 1 on strip-board:
 
 # System Description
 
-The microcontroller in this project, a MicroChip PIC12LF1501, is a small 8-pin
+The microcontroller in this project, a
+[MicroChip PIC12LF1501](http://www.microchip.com/PIC12F1501), is a small 8-pin
 device with a number of hardware features. It was selected for this project
-specifically because of both its size and having four PWM peripherals, and
-because, like many PIC devices, it is cheap and fairly power efficient.
+specifically because of its size, its very low power consumption and having
+four PWM peripherals. Additionally it helps that, like many PIC devices, it is
+quite inexpensive.
 
 The circuit for the project uses four differently colored LEDs (and associated
 current-limiting resistors), a button, and is powered by a coin-cell battery.
 Two capacitors provide decoupling and bulk storage; the latter helps reduce
 smooth the otherwise bursty current draw of the LEDs from the battery. The
 board has locations to optionally also provide an ICSP programming header and
-pull-up resistor.
+associated pull-up resistor.
 
 The code for this project is divided roughly across a handful of source files.
 `main.c` contains the basic hardware device initialization and the interrupt
@@ -91,6 +93,35 @@ handler. `badge.c` and `badge.h` contains the code with LED patterns in it.
 Various configuration details are kept in `config.h` (Peripheral setup values,
 for example to setup the timers and PWMs) and `pic_config.h` (PIC startup
 values).
+
+
+## Power
+
+Power is derived from a single CR2032 button-cell battery nominally providing
+3v. The specifications for this type of battery vary a little but generally
+speaking they are designed to provide a limited amount of current for a fairly
+long time. Design capacity is typically 225mAh with sustained maximum current
+of between 0.2 to 1mA and with peak current of as much as 15mA but not for
+more than a few milliseconds.
+
+The observant will note we had four LEDs on this board and typical LEDs have
+a forward current of 20mA each. Whilst most CR2032's we have used, including
+no-name brand varieties, have been able to provide sufficient current to
+drive all four LEDs at full brightness, it is not without significant drop
+in the voltage the cell provides (a fresh cell may drop to 2.6v, for example)
+but it will also quickly deplete the capacity of the battery. For this reason
+our software will need to try to avoid powering the LEDs for extended periods
+and also avoid powering the LEDs at full brightness. Indeed, the bulk
+storage capacitor, C2, is provided entirely as an energy store that charges
+during the off-section of the PWM duty cycle to reduce the demand for peak
+current from the battery. It is this consideration that also directed the need
+for a button in the design, so that the device may be woken up after having
+gone to sleep after some short period of activity.
+
+Why then, given the limitations, did we choose a CR2032? Simply, they are
+readily available, inexpensive, a usable form factor and mounting in the
+design is straightforward. The tradeoff is capacity, but for this project
+this currently seems acceptable.
 
 
 ## System clock
@@ -127,13 +158,19 @@ a fresh CR2032 battery might last more than two years at this power level.
 
 ## The button
 
+The button is connected to GPIO RA1 on pin 6 of the device. In software we
+configure this as a digital input with a built-in "weak pull-up"; that is,
+the device provides a (software removable) resistor between the input and Vdd.
+When left open-circuit, the input will read a digital `1`. The button pulls the
+input to ground, and thus to digital `0`.
+
 Any interrupt can wake the device from sleep if it is left configured when
 going to sleep and any associated peripheral remains running when sleeping.
 
-The input pin that the button is attached to is configured to "interrupt on
-change"; this mode will survive sleeping. Should the input line change when
-asleep the system resumes from where it left of; the code re-initializes the
-hardware and then the program continues as normal.
+The input pin is configured to "interrupt on change"; this mode will survive
+sleeping. Should the input line change when asleep the system resumes from
+where it left of; the code re-initializes the hardware and then the program
+continues as normal.
 
 The interrupt also triggers during normal operation when the button is
 pressed; this does two things:
@@ -149,6 +186,13 @@ the button to have finished; each subsequent noisy input resets the Timer 1
 counter. Once the Timer 1 counter completes, its interrupt then causes the LED
 pattern to cycle by incrementing the pattern number.
 
+A hardware debounce would be much simpler to implement, a small capacitor and
+a resistor would achieve it; we prioritize the need to keep the component
+count down over code size. Similarly a stronger pull-up is typically desirable;
+keeping component count down is part of the reason we use the built-in but
+since this pin is the ICSP clock pin an external pull-up could easily
+interfere with device programming.
+
 
 ## LED patterns
 
@@ -157,9 +201,14 @@ the LEDs once and then return; advancing to the next LED state the next time
 it is called. In this way cycling through different LED patterns is just a
 matter of the dispatching code sitting in a loop and on each iteration
 checking which pattern should be running and calling the appropriate function.
-Presently this dispatch is performed in a `switch` statement; value `0` calls
-`iterate_basic_ramp`, value `1` calls another function, etc. In future a
-function table may work better.
+
+Presently this dispatch is performed using a function table and an index value
+that is incremented when the button is pushed, wrapping to zero when the it
+exceeds the number of entries in the table.
+
+Adding a new pattern is a simple matter of writing a new iterator function
+in `badge.c` and adding that function to the array `badge_iterator` in
+`badge.c`.
 
 
 ## Future thoughts
@@ -168,7 +217,7 @@ In future, power reduction may be realized by replacing the current per-
 iteration spin-style sleep (that is, the processor executes dummy instructions
 in a loop until the correct amount of time has passed) with a system sleep
 that is woken up by Timer 0 after N-milliseconds, though in the scheme of
-things the amount of power consumed by the processor is tiny  compared to the
+things the amount of power consumed by the processor is tiny compared to the
 LEDs.
 
 
