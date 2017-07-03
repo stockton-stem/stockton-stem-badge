@@ -22,7 +22,7 @@ extern "C" {
 #pragma config BOREN = OFF      // Brown-out detect off
 #pragma config CP = OFF         // Code EEPROM protection
 #pragma config MCLRE = ON       // !MCLR disable
-#pragma config PWRTE = ON       // Power up timer disable
+#pragma config PWRTE = ON       // Power up timer enable
 #pragma config FOSC = INTOSC    // Internal clock
 #pragma config LPBOR = OFF      // Low-power brownout
 #pragma config BORV = 1         // Brown out reset voltage (low trip point)
