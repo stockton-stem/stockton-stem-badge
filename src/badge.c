@@ -15,17 +15,12 @@
 #define lv(v) (v < (mv/2) ? v : mv - (v) - 1)
 
 
-enum badge_patterns {
-    BASIC_RAMP,
-    BASIC_FLASH,
-    
-    PATTERN_MAX
-};
-
-static enum badge_patterns pattern = 0;
+// Index value for the current pattern being executed.
+static uint8_t pattern = 0;
 
 
-void iterate_basic_ramp(void) {
+// Basic LED ramping pattern.
+static void iterate_basic_ramp(void) {
     // Animate the badge here!
     static uint8_t i = 0, j = 16, k = 32, l = 64;
 
@@ -47,7 +42,8 @@ void iterate_basic_ramp(void) {
 }
 
 
-void iterate_basic_flash(void) {
+// Basic LED blink on-off pattern.
+static void iterate_basic_flash(void) {
     static uint16_t i = 0;
     
     if (i < 500) {
@@ -70,24 +66,29 @@ void iterate_basic_flash(void) {
 }
 
 
+// List of pattern iterator functions.
+static void (*badge_iterator[])(void) = {
+        iterate_basic_ramp,
+        iterate_basic_flash,
+};
+
+
+// Calculates how many items are in badge_iterator.
+// This will be optimized to a constant by the compiler.
+#define PATTERN_MAX (sizeof(badge_iterator) / sizeof(badge_iterator[0]))
+
+
+// Iterates the badge pattern by calling the iterator function based
+// on the current valuer of 'pattern'.
 void badge_iterate(void) {
-    switch (pattern) {
-        case BASIC_RAMP:
-            iterate_basic_ramp();
-            break;
-
-        case BASIC_FLASH:
-            iterate_basic_flash();
-            break;
-
-        default:
-            pattern = 0;
-    }
+    badge_iterator[pattern]();
 
     return;
 }
 
 
+// The button has been pressed; increment the pattern index, wrapping to
+// 0 if we increment past the number of patterns.
 void badge_button(void) {
     pattern++;
 
