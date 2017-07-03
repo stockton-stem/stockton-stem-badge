@@ -91,7 +91,7 @@ The code for this project is divided roughly across a handful of source files.
 `main.c` contains the basic hardware device initialization and the interrupt
 handler. `badge.c` and `badge.h` contains the code with LED patterns in it.
 Various configuration details are kept in `config.h` (Peripheral setup values,
-for example to setup the timers and PWMs) and `pic_config.h` (PIC startup
+for example to setup the timers and PWMs) and `pic_config.c` (PIC startup
 values).
 
 
@@ -104,8 +104,8 @@ long time. Design capacity is typically 225mAh with sustained maximum current
 of between 0.2 to 1mA and with peak current of as much as 15mA but not for
 more than a few milliseconds.
 
-The observant will note we had four LEDs on this board and typical LEDs have
-a forward current of 20mA each. Whilst most CR2032's we have used, including
+The observant will note we have four LEDs on this board and typical LEDs have
+a forward current of ~20mA each. Whilst most CR2032's we have used, including
 no-name brand varieties, have been able to provide sufficient current to
 drive all four LEDs at full brightness, it is not without significant drop
 in the voltage the cell provides (a fresh cell may drop to 2.6v, for example)

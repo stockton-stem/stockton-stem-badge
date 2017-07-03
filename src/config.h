@@ -14,6 +14,9 @@
 extern "C" {
 #endif
 
+    // Whether we want to use the watchdog timer
+//#define USE_WATCHDOG
+
 
 // With a processor clock of 1MHz and 2:1 prescaler, PR2 0x65 gives
 // us a 16.26ms PWM period (aka ~600Hz)

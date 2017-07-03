@@ -5,7 +5,6 @@
  * https://github.com/stockton-stem/stockton-stem-badge
  */
 
-#include "pic_config.h"
 #include "config.h"
 #include <xc.h>
 #include <stdint.h>
