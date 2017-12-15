@@ -131,6 +131,7 @@ F 5 "ZOR-25-R-52-0R" H 2900 3750 60  0001 C CNN "part#"
 F 6 "Mouser" H 2900 3750 60  0001 C CNN "Src1"
 F 7 "603-ZOR-25-R-520R" H 2900 3750 60  0001 C CNN "Src1 Part"
 F 8 "http://www.mouser.com/ProductDetail/Yageo/ZOR-25-R-52-0R" H 2900 3750 60  0001 C CNN "Src1 URL"
+F 9 "1" V 2900 3750 60  0001 C CNN "DNP"
 	1    2900 3750
 	1    0    0    -1  
 $EndComp
@@ -287,12 +288,12 @@ $EndComp
 $Comp
 L GND #PWR07
 U 1 1 591F56C5
-P 9750 4450
-F 0 "#PWR07" H 9750 4200 50  0001 C CNN
-F 1 "GND" H 9750 4300 50  0000 C CNN
-F 2 "" H 9750 4450 50  0001 C CNN
-F 3 "" H 9750 4450 50  0001 C CNN
-	1    9750 4450
+P 9750 4550
+F 0 "#PWR07" H 9750 4300 50  0001 C CNN
+F 1 "GND" H 9750 4400 50  0000 C CNN
+F 2 "" H 9750 4550 50  0001 C CNN
+F 3 "" H 9750 4550 50  0001 C CNN
+	1    9750 4550
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -308,6 +309,7 @@ F 5 "171856-0006" H 10100 4100 60  0001 C CNN "part#"
 F 6 "Mouser" H 10100 4100 60  0001 C CNN "Src1"
 F 7 "538-171856-0006" H 10100 4100 60  0001 C CNN "Src1 Part"
 F 8 "http://www.mouser.com/ProductDetail/Molex/171856-0006" H 10100 4100 60  0001 C CNN "Src1 URL"
+F 9 "1" H 10100 4100 60  0001 C CNN "DNP"
 	1    10100 4100
 	1    0    0    -1  
 $EndComp
@@ -347,6 +349,7 @@ F 5 "MF1/4DCT52R1002F" H 9850 3650 60  0001 C CNN "part#"
 F 6 "Mouser" H 9850 3650 60  0001 C CNN "Src1"
 F 7 "660-MF1/4DCT52R1002F" H 9850 3650 60  0001 C CNN "Src1 Part"
 F 8 "http://www.mouser.com/ProductDetail/KOA-Speer/MF1-4DCT52R1002F" H 9850 3650 60  0001 C CNN "Src1 URL"
+F 9 "1" H 9850 3650 60  0001 C CNN "DNP"
 	1    9850 3650
 	1    0    0    -1  
 $EndComp
@@ -371,7 +374,7 @@ Wire Wire Line
 Wire Wire Line
 	9750 4050 9900 4050
 Wire Wire Line
-	9750 4450 9750 4050
+	9750 4550 9750 4050
 Wire Wire Line
 	9750 3300 9750 3950
 Wire Wire Line
@@ -391,11 +394,11 @@ Wire Wire Line
 Wire Wire Line
 	3200 3600 3200 3450
 Wire Wire Line
-	2900 3600 2900 3450
+	2900 3450 2900 3600
 Connection ~ 3800 4400
 Connection ~ 3500 4400
 Wire Wire Line
-	3500 4300 3500 4400
+	3500 4400 3500 4300
 Connection ~ 3200 4400
 Wire Wire Line
 	3200 4300 3200 4400
@@ -512,6 +515,69 @@ Wire Wire Line
 	2650 3950 2900 3950
 Connection ~ 2900 3950
 Connection ~ 2900 3550
-Text Notes 2650 4100 1    60   ~ 0
+Text Notes 2650 3950 1    39   ~ 0
 Cut if using R1
+Wire Notes Line
+	9700 3500 9700 4450
+Wire Notes Line
+	9700 4450 10300 4450
+Wire Notes Line
+	10300 4450 10300 3500
+Wire Notes Line
+	10300 3500 9700 3500
+Text Notes 10300 3800 0    39   ~ 0
+Optional\nprogramming\nheader
+Text Notes 2850 3800 1    39   ~ 0
+DNP
+$Comp
+L Battery_Cell BT2
+U 1 1 5A33EB85
+P 7100 5750
+F 0 "BT2" H 7200 5850 50  0000 L CNN
+F 1 "CR2032" H 7200 5750 50  0000 L CNN
+F 2 "Oddities:Dummy_Empty" V 7100 5810 50  0001 C CNN
+F 3 "http://www.mouser.com/ds/2/315/AAA4000C321-1137687.pdf" V 7100 5810 50  0001 C CNN
+F 4 "Panasonic" H 7100 5750 60  0001 C CNN "mfr"
+F 5 "CR2032" H 7100 5750 60  0001 C CNN "part#"
+F 6 "Mouser" H 7100 5750 60  0001 C CNN "Src1"
+F 7 "658-CR2032" H 7100 5750 60  0001 C CNN "Src1 Part"
+F 8 "https://www.mouser.com/Search/Refine.aspx?Keyword=658-CR2032" H 7100 5750 60  0001 C CNN "Src1 URL"
+	1    7100 5750
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_02X04 J2
+U 1 1 5A33EF76
+P 6250 5700
+F 0 "J2" H 6250 5950 50  0000 C CNN
+F 1 "DIP8" H 6250 5450 50  0000 C CNN
+F 2 "Oddities:Dummy_Empty" H 6250 4500 50  0001 C CNN
+F 3 "http://www.mouser.com/ds/2/418/NG_CD_2199298_A_baseFilename-664542.pdf" H 6250 4500 50  0001 C CNN
+F 4 "TE" H 6250 5700 60  0001 C CNN "mfr"
+F 5 "1-2199298-2" H 6250 5700 60  0001 C CNN "part#"
+F 6 "Mouser" H 6250 5700 60  0001 C CNN "Src1"
+F 7 "571-1-2199298-2" H 6250 5700 60  0001 C CNN "Src1 Part"
+F 8 "https://www.mouser.com/ProductDetail/TE-Connectivity/1-2199298-2" H 6250 5700 60  0001 C CNN "Src1 URL"
+F 9 "Digikey" H 6250 5700 60  0001 C CNN "Src2"
+F 10 "ED3044-5-ND" H 6250 5700 60  0001 C CNN "Src2 Part"
+F 11 "https://www.digikey.com/product-detail/en/on-shore-technology-inc/ED08DT/ED3044-5-ND/4147594" H 6250 5700 60  0001 C CNN "Src2 URL"
+	1    6250 5700
+	1    0    0    -1  
+$EndComp
+Wire Notes Line
+	5800 5200 7600 5200
+Wire Notes Line
+	7600 5200 7600 6100
+Wire Notes Line
+	7600 6100 5800 6100
+Wire Notes Line
+	5800 6100 5800 5200
+Text Notes 5800 5200 0    39   ~ 0
+These parts have no footprint on the PCB
+Text Notes 6000 5400 0    39   ~ 0
+IC socket
+Text Notes 7000 5400 0    39   ~ 0
+Battery
+Text Notes 8300 4000 0    39   ~ 0
+Battery holder
 $EndSCHEMATC
