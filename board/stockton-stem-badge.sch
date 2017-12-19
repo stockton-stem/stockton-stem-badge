@@ -532,52 +532,62 @@ DNP
 $Comp
 L Battery_Cell BT2
 U 1 1 5A33EB85
-P 7100 5750
-F 0 "BT2" H 7200 5850 50  0000 L CNN
-F 1 "CR2032" H 7200 5750 50  0000 L CNN
-F 2 "Oddities:Dummy_Empty" V 7100 5810 50  0001 C CNN
-F 3 "http://www.mouser.com/ds/2/315/AAA4000C321-1137687.pdf" V 7100 5810 50  0001 C CNN
-F 4 "Panasonic" H 7100 5750 60  0001 C CNN "mfr"
-F 5 "CR2032" H 7100 5750 60  0001 C CNN "part#"
-F 6 "Mouser" H 7100 5750 60  0001 C CNN "Src1"
-F 7 "658-CR2032" H 7100 5750 60  0001 C CNN "Src1 Part"
-F 8 "https://www.mouser.com/Search/Refine.aspx?Keyword=658-CR2032" H 7100 5750 60  0001 C CNN "Src1 URL"
-	1    7100 5750
+P 2000 7250
+F 0 "BT2" H 2100 7350 50  0000 L CNN
+F 1 "CR2032" H 2100 7250 50  0000 L CNN
+F 2 "Oddities:Dummy_Empty" V 2000 7310 50  0001 C CNN
+F 3 "http://www.mouser.com/ds/2/315/AAA4000C321-1137687.pdf" V 2000 7310 50  0001 C CNN
+F 4 "Panasonic" H 2000 7250 60  0001 C CNN "mfr"
+F 5 "CR2032" H 2000 7250 60  0001 C CNN "part#"
+F 6 "Mouser" H 2000 7250 60  0001 C CNN "Src1"
+F 7 "658-CR2032" H 2000 7250 60  0001 C CNN "Src1 Part"
+F 8 "https://www.mouser.com/Search/Refine.aspx?Keyword=658-CR2032" H 2000 7250 60  0001 C CNN "Src1 URL"
+	1    2000 7250
 	1    0    0    -1  
 $EndComp
 $Comp
 L CONN_02X04 J2
 U 1 1 5A33EF76
-P 6250 5700
-F 0 "J2" H 6250 5950 50  0000 C CNN
-F 1 "DIP8" H 6250 5450 50  0000 C CNN
-F 2 "Oddities:Dummy_Empty" H 6250 4500 50  0001 C CNN
-F 3 "http://www.mouser.com/ds/2/418/NG_CD_2199298_A_baseFilename-664542.pdf" H 6250 4500 50  0001 C CNN
-F 4 "TE" H 6250 5700 60  0001 C CNN "mfr"
-F 5 "1-2199298-2" H 6250 5700 60  0001 C CNN "part#"
-F 6 "Mouser" H 6250 5700 60  0001 C CNN "Src1"
-F 7 "571-1-2199298-2" H 6250 5700 60  0001 C CNN "Src1 Part"
-F 8 "https://www.mouser.com/ProductDetail/TE-Connectivity/1-2199298-2" H 6250 5700 60  0001 C CNN "Src1 URL"
-F 9 "Digikey" H 6250 5700 60  0001 C CNN "Src2"
-F 10 "ED3044-5-ND" H 6250 5700 60  0001 C CNN "Src2 Part"
-F 11 "https://www.digikey.com/product-detail/en/on-shore-technology-inc/ED08DT/ED3044-5-ND/4147594" H 6250 5700 60  0001 C CNN "Src2 URL"
-	1    6250 5700
+P 1150 7200
+F 0 "J2" H 1150 7450 50  0000 C CNN
+F 1 "DIP8" H 1150 6950 50  0000 C CNN
+F 2 "Oddities:Dummy_Empty" H 1150 6000 50  0001 C CNN
+F 3 "http://www.mouser.com/ds/2/418/NG_CD_2199298_A_baseFilename-664542.pdf" H 1150 6000 50  0001 C CNN
+F 4 "TE" H 1150 7200 60  0001 C CNN "mfr"
+F 5 "1-2199298-2" H 1150 7200 60  0001 C CNN "part#"
+F 6 "Mouser" H 1150 7200 60  0001 C CNN "Src1"
+F 7 "571-1-2199298-2" H 1150 7200 60  0001 C CNN "Src1 Part"
+F 8 "https://www.mouser.com/ProductDetail/TE-Connectivity/1-2199298-2" H 1150 7200 60  0001 C CNN "Src1 URL"
+F 9 "Digikey" H 1150 7200 60  0001 C CNN "Src2"
+F 10 "ED3044-5-ND" H 1150 7200 60  0001 C CNN "Src2 Part"
+F 11 "https://www.digikey.com/product-detail/en/on-shore-technology-inc/ED08DT/ED3044-5-ND/4147594" H 1150 7200 60  0001 C CNN "Src2 URL"
+	1    1150 7200
 	1    0    0    -1  
 $EndComp
 Wire Notes Line
-	5800 5200 7600 5200
+	700  6700 2500 6700
 Wire Notes Line
-	7600 5200 7600 6100
+	2500 6700 2500 7600
 Wire Notes Line
-	7600 6100 5800 6100
+	2500 7600 700  7600
 Wire Notes Line
-	5800 6100 5800 5200
-Text Notes 5800 5200 0    39   ~ 0
-These parts have no footprint on the PCB
-Text Notes 6000 5400 0    39   ~ 0
+	700  7600 700  6700
+Text Notes 700  6700 0    39   ~ 0
+These parts are only present for the B0M.\nThey have no footprint on the PCB.
+Text Notes 900  6900 0    39   ~ 0
 IC socket
-Text Notes 7000 5400 0    39   ~ 0
+Text Notes 1900 6900 0    39   ~ 0
 Battery
 Text Notes 8300 4000 0    39   ~ 0
 Battery holder
+NoConn ~ 2000 7050
+NoConn ~ 2000 7350
+NoConn ~ 1400 7050
+NoConn ~ 1400 7150
+NoConn ~ 1400 7250
+NoConn ~ 1400 7350
+NoConn ~ 900  7350
+NoConn ~ 900  7250
+NoConn ~ 900  7150
+NoConn ~ 900  7050
 $EndSCHEMATC
