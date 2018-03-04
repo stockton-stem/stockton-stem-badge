@@ -11,14 +11,24 @@
 #include "badge.h"
 
 
-#define mv 255
-#define lv(v) (v < (mv/2) ? v : mv - (v) - 1)
+// Maximum value any LED PWM can be set to
+#define MAX_LED_VALUE 255
+
+// Define (or not) these to control which patterns are compiled
+#define PATTERN_BASIC_RAMP
+#define PATTERN_REVERSE_RAMP
+#define PATTERN_FLASH_ALL
+//#define PATTERN_FLASH_BLUE
+
+// Helper macro to generate a sort of linear ramp-up/down value
+#define lv(v) (v < (MAX_LED_VALUE/2) ? v : MAX_LED_VALUE - (v) - 1)
 
 
 // Index value for the current pattern being executed.
 static uint8_t pattern = 0;
 
 
+#ifdef PATTERN_BASIC_RAMP
 // Basic LED ramping pattern.
 static void iterate_basic_ramp(void) {
     // Animate the badge here!
@@ -31,16 +41,18 @@ static void iterate_basic_ramp(void) {
 
     ++i; ++j; ++k; ++l;
     
-    if (i >= mv) i = 0;
-    if (j >= mv) j = 0;
-    if (k >= mv) k = 0;
-    if (l >= mv) l = 0;
+//    if (i >= MAX_LED_VALUE) i = 0;
+    if (j >= MAX_LED_VALUE) j = 0;
+    if (k >= MAX_LED_VALUE) k = 0;
+    if (l >= MAX_LED_VALUE) l = 0;
 
     __delay_ms(10);
 
     return;
 }
+#endif // PATTERN_BASIC_RAMP
 
+#ifdef PATTERN_REVERSE_RAMP
 // Same ramping pattern, but in reverse
 static void iterate_reverse_ramp(void) {
      static uint8_t i = 0, j = 16, k = 32, l = 64;
@@ -52,25 +64,27 @@ static void iterate_reverse_ramp(void) {
 
     ++i; ++j; ++k; ++l;
     
-    if (i >= mv) i = 0;
-    if (j >= mv) j = 0;
-    if (k >= mv) k = 0;
-    if (l >= mv) l = 0;
+    if (i >= MAX_LED_VALUE) i = 0;
+    if (j >= MAX_LED_VALUE) j = 0;
+    if (k >= MAX_LED_VALUE) k = 0;
+    if (l >= MAX_LED_VALUE) l = 0;
 
     __delay_ms(10);
     
     return;
 }
+#endif // PATTERN_REVERSE_RAMP
 
+#ifdef PATTERN_FLASH_ALL
 // Basic LED blink on-off pattern.
-static void iterate_basic_flash(void) {
+static void iterate_flash_all(void) {
     static uint16_t i = 0;
     
     if (i < 500) {
-        set_pwm8(PWM1, mv);
-        set_pwm8(PWM2, mv);
-        set_pwm8(PWM3, mv);
-        set_pwm8(PWM4, mv);
+        set_pwm8(PWM1, MAX_LED_VALUE);
+        set_pwm8(PWM2, MAX_LED_VALUE);
+        set_pwm8(PWM3, MAX_LED_VALUE);
+        set_pwm8(PWM4, MAX_LED_VALUE);
         ++i;
     } else if (i < 1000) {
         set_pwm8(PWM1, 0);
@@ -84,13 +98,15 @@ static void iterate_basic_flash(void) {
     
     return;
 }
+#endif // PATTERN_FLASH_ALL
 
+#ifdef PATTERN_FLASH_BLUE
 // Blink the blue LED
-static void iterate_blue_flash(void) {
+static void iterate_flash_blue(void) {
     static uint16_t i = 0;
     
     if (i < 500) {
-        set_pwm8(PWM1, mv);
+        set_pwm8(PWM1, MAX_LED_VALUE);
         set_pwm8(PWM2, 0);
         set_pwm8(PWM3, 0);
         set_pwm8(PWM4, 0);
@@ -107,14 +123,23 @@ static void iterate_blue_flash(void) {
     
     return;
 }
+#endif // PATTERN_FLASH_BLUE
 
 
 // List of pattern iterator functions.
 static void (*badge_iterator[])(void) = {
+#ifdef PATTERN_BASIC_RAMP
         iterate_basic_ramp,
+#endif
+#ifdef PATTERN_REVERSE_RAMP
         iterate_reverse_ramp,
-        iterate_basic_flash,
-        //iterate_blue_flash,
+#endif
+#ifdef PATTERN_FLASH_ALL
+        iterate_flash_all,
+#endif
+#ifdef PATTERN_FLASH_BLUE
+        iterate_flash_blue,
+#endif
 };
 
 
