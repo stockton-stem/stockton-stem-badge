@@ -41,6 +41,26 @@ static void iterate_basic_ramp(void) {
     return;
 }
 
+// Same ramping pattern, but in reverse
+static void iterate_reverse_ramp(void) {
+     static uint8_t i = 0, j = 16, k = 32, l = 64;
+
+    set_pwm8(PWM4, lv(i)<<1);
+    set_pwm8(PWM3, lv(j)<<1);
+    set_pwm8(PWM2, lv(k)<<1);
+    set_pwm8(PWM1, lv(l)<<1);
+
+    ++i; ++j; ++k; ++l;
+    
+    if (i >= mv) i = 0;
+    if (j >= mv) j = 0;
+    if (k >= mv) k = 0;
+    if (l >= mv) l = 0;
+
+    __delay_ms(10);
+    
+    return;
+}
 
 // Basic LED blink on-off pattern.
 static void iterate_basic_flash(void) {
@@ -65,11 +85,36 @@ static void iterate_basic_flash(void) {
     return;
 }
 
+// Blink the blue LED
+static void iterate_blue_flash(void) {
+    static uint16_t i = 0;
+    
+    if (i < 500) {
+        set_pwm8(PWM1, mv);
+        set_pwm8(PWM2, 0);
+        set_pwm8(PWM3, 0);
+        set_pwm8(PWM4, 0);
+        ++i;
+    } else if (i < 1000) {
+        set_pwm8(PWM1, 0);
+        set_pwm8(PWM2, 0);
+        set_pwm8(PWM3, 0);
+        set_pwm8(PWM4, 0);
+        ++i;
+    } else {
+        i = 0;
+    }
+    
+    return;
+}
+
 
 // List of pattern iterator functions.
 static void (*badge_iterator[])(void) = {
         iterate_basic_ramp,
+        iterate_reverse_ramp,
         iterate_basic_flash,
+        //iterate_blue_flash,
 };
 
 
