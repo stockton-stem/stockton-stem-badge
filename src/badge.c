@@ -41,7 +41,7 @@ static void iterate_basic_ramp(void) {
 
     ++i; ++j; ++k; ++l;
     
-//    if (i >= MAX_LED_VALUE) i = 0;
+    if (i >= MAX_LED_VALUE) i = 0;
     if (j >= MAX_LED_VALUE) j = 0;
     if (k >= MAX_LED_VALUE) k = 0;
     if (l >= MAX_LED_VALUE) l = 0;
