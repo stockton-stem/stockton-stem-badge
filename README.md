@@ -17,9 +17,12 @@ free version of the development software and an inexpensive device programming
 tool.
 
 The board design schematics and firmware source code lives at
-https://github.com/stockton-stem/stockton-stem-badge .
+https://github.com/stockton-stem/stockton-stem-badge and an assembly guide
+document is available under
+_[releases](https://github.com/stockton-stem/stockton-stem-badge/releases)_.
 
-The Stockton STEM Collaborative page lives at https://stockton.edu/stem .
+The Stockton STEM Collaborative page lives at
+[https://stockton.edu/stem](https://stockton.edu/stem).
 
 
 ## Scope
@@ -34,11 +37,9 @@ Components:
 * Coin-cell battery.
 * Push-button.
 
+## Status
 
-## Progress
-
-First approximations of code and circuit are committed to this repository.
-They are far from final, but here's some pictures of the progress:
+v0.3 of the board has had an outing with over 40 7th and 8th graders graders!
 
 ### Schematic
 
@@ -52,23 +53,11 @@ They are far from final, but here's some pictures of the progress:
 
 ![3D render of board](https://raw.githubusercontent.com/stockton-stem/stockton-stem-badge/master/images/board-render.png)
 
-### Working prototypes
+### Board v0.4 render by OSH Park
 
-Prototype 1 on strip-board:
+![OSH Park v0.4 front](https://raw.githubusercontent.com/stockton-stem/stockton-stem-badge/master/images/board-v0.4-osh-front.png)
 
-![First prototype](https://raw.githubusercontent.com/stockton-stem/stockton-stem-badge/master/images/prototype1.jpg)
-
-### Board v0.1 render by OSH Park
-
-![OSH Park v0.1 front](https://raw.githubusercontent.com/stockton-stem/stockton-stem-badge/master/images/board-v0.1-osh-front.png)
-
-![OSH Park v0.1 back](https://raw.githubusercontent.com/stockton-stem/stockton-stem-badge/master/images/board-v0.1-osh-back.png)
-
-### Board v0.3 render by OSH Park
-
-![OSH Park v0.3 front](https://raw.githubusercontent.com/stockton-stem/stockton-stem-badge/master/images/board-v0.3-osh-front.png)
-
-![OSH Park v0.3 back](https://raw.githubusercontent.com/stockton-stem/stockton-stem-badge/master/images/board-v0.3-osh-back.png)
+![OSH Park v0.4 back](https://raw.githubusercontent.com/stockton-stem/stockton-stem-badge/master/images/board-v0.4-osh-back.png)
 
 
 # System Description

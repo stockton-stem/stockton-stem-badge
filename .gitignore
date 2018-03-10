@@ -47,3 +47,4 @@ board/stockton-stem-badge.xlsx
 board/gerber/gerber.zip
 doc/~$ocktonSTEMbadge-assembly-guide.docx
 board/stockton-stem-badge.sch.svg
+*.pdf

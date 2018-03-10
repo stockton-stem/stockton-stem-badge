@@ -3,7 +3,7 @@
   (general
     (links 33)
     (no_connects 1)
-    (area 123.724999 71.514999 174.675001 122.465001)
+    (area 123.724999 66.388 174.675001 133.540001)
     (thickness 1.6002)
     (drawings 11)
     (tracks 144)
@@ -15,8 +15,8 @@
   (page A4)
   (title_block
     (title "Stockton STEM Collaborative badge")
-    (date 2017-12-19)
-    (rev v0.4)
+    (date 2018-03-10)
+    (rev v0.5)
     (company "MIT License; (c) 2017 Chris Luke")
     (comment 2 https://github.com/stockton-stem/stockton-stem-badge)
     (comment 3 "Microcontroller-driven LED flasher")
